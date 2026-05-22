@@ -36,7 +36,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://elecannonic.github.io/images/global/redefine-og.webp">
 <meta property="article:published_time" content="2025-09-08T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-01-26T10:37:50.944Z">
+<meta property="article:modified_time" content="2026-05-22T05:27:18.689Z">
 <meta property="article:author" content="EleCannonic">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://elecannonic.github.io/images/global/redefine-og.webp">
@@ -644,8 +644,8 @@ mjx-container[display="true"] + br {
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2026-01-26 18:37:50</span>
-            <span class="mobile">2026-01-26 18:37:50</span>
+            <span class="desktop">2026-05-22 13:27:18</span>
+            <span class="mobile">2026-05-22 13:27:18</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -704,13 +704,13 @@ mjx-container[display="true"] + br {
 <p>The following is the project link: <a class="link" target="_blank" rel="noopener" href="https://github.com/riscv-mcu/e203_hbirdv2">Hummingbird E203<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
 <h2 id="1-Instruction-Set-Architecture-ISA"><a href="#1-Instruction-Set-Architecture-ISA" class="headerlink" title="1. Instruction Set Architecture (ISA)"></a>1. Instruction Set Architecture (ISA)</h2><p>hbird_e203 applies RISC-V ISA,<br>which is designed simply.<br>Instrictions in RISC-V ISA are ordered strictly.</p>
 <div align="center">  
-<img lazyload="" src="/images/loading.svg" data-src="/images/e203/e203_ins.png" width="400" height="300">  
+<img lazyload="" src="/images/loading.svg" data-src="https://images.elecannonic.com/e203/e203_ins.png" width="400" height="300">  
 </div>  
 <center>Format of RISC-V Instructions</center> 
 
 <p>RISC-V only supports little-endian.<br>What is little-endian and big-endian?<br>Well, let’s use a figure to interpret:</p>
 <div align="center">  
-<img lazyload="" src="/images/loading.svg" data-src="/images/e203/e203_endian.png" width="400" height="300">  
+<img lazyload="" src="/images/loading.svg" data-src="https://images.elecannonic.com/e203/e203_endian.png" width="400" height="300">  
 </div>  
 <center>Interpretation of Little-Endian and Big-Endian</center> 
 
@@ -734,7 +734,7 @@ mjx-container[display="true"] + br {
 <div class="code-container" data-rel="Verilog"><figure class="iseeu highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (sel1)</span><br><span class="line">    out = in1[<span class="number">3</span>:<span class="number">0</span>];</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (sel2)</span><br><span class="line">    out = in2[<span class="number">3</span>:<span class="number">0</span>];</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (sel3)</span><br><span class="line">    out = in3[<span class="number">3</span>:<span class="number">0</span>];</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    out = <span class="number">4'b0</span>;</span><br></pre></td></tr></table></figure></div>
 <p>After synthesis, this code turns to</p>
 <div align="center">  
-<img lazyload="" src="/images/loading.svg" data-src="/images/e203/e203_pr_mux.png" width="400" height="300">  
+<img lazyload="" src="/images/loading.svg" data-src="https://images.elecannonic.com/e203/e203_pr_mux.png" width="400" height="300">  
 </div>  
 <center>Priority MUX</center></li>
 </ul>
@@ -742,7 +742,7 @@ mjx-container[display="true"] + br {
 <div class="code-container" data-rel="Verilog"><figure class="iseeu highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">assign</span> out =   ({<span class="number">4</span>{sel1}} &amp; in1[<span class="number">3</span>:<span class="number">0</span>])</span><br><span class="line">             | ({<span class="number">4</span>{sel2}} &amp; in2[<span class="number">3</span>:<span class="number">0</span>])</span><br><span class="line">             | ({<span class="number">4</span>{sel3}} &amp; in3[<span class="number">3</span>:<span class="number">0</span>]);</span><br></pre></td></tr></table></figure></div>
 <p>This is a parallel, gating MUX.<br>The <code>sel</code> signals act as gating controls,<br>which are parallel for the three <code>in</code> signals.<br>It will be synthesised as</p>
 <div align="center">  
-<img lazyload="" src="/images/loading.svg" data-src="/images/e203/e203_pa_mux.png" width="400" height="300">  
+<img lazyload="" src="/images/loading.svg" data-src="https://images.elecannonic.com/e203/e203_pa_mux.png" width="400" height="300">  
 </div>  
 <center>Parallel MUX</center> 
 
@@ -834,7 +834,7 @@ mjx-container[display="true"] + br {
 </li>
 </ul>
 <div align="center">  
-<img lazyload="" src="/images/loading.svg" data-src="/images/e203/e203_2bs.png" width="800" height="600">  
+<img lazyload="" src="/images/loading.svg" data-src="https://images.elecannonic.com/e203/e203_2bs.png" width="800" height="600">  
 </div>  
 <center>2 bit Saturating Counter FSM Chart</center> 
 
@@ -875,7 +875,7 @@ mjx-container[display="true"] + br {
 <h2 id="6-E200-IFU-Implementation"><a href="#6-E200-IFU-Implementation" class="headerlink" title="6. E200 IFU Implementation"></a>6. E200 IFU Implementation</h2><p>RISC-V put the length indicator on the lowest significant bits.<br>Hence, the IF logic can recognize the length right after it fetches the lowest bits.<br>What’s more,<br>since the compressed instruction set is optional,<br>if the CPU is not designed to support compressed set,<br>it can directly ignore the lowest bits,<br>which can save about 6.25 I-cache cost.</p>
 <h3 id="Overall-Design-Concept"><a href="#Overall-Design-Concept" class="headerlink" title="Overall Design Concept"></a>Overall Design Concept</h3><p>IFU module has such a micro-architechture:</p>
 <div align="center">  
-<img lazyload="" src="/images/loading.svg" data-src="/images/e203/e203_ifu_str.png" width="800" height="600">  
+<img lazyload="" src="/images/loading.svg" data-src="https://images.elecannonic.com/e203/e203_ifu_str.png" width="800" height="600">  
 </div>  
 <center>IFU Micro-Architechture</center> 
 
@@ -888,7 +888,7 @@ mjx-container[display="true"] + br {
 <p>We will research on the decode module in detail<br>in the following sections, not here.</p>
 <h3 id="Ready-Valid-Handshake"><a href="#Ready-Valid-Handshake" class="headerlink" title="Ready/Valid Handshake"></a>Ready/Valid Handshake</h3><p>Ready/valid handshake is a protocal to ensure correct transition of data<br>between two equipments.</p>
 <div align="center">  
-<img lazyload="" src="/images/loading.svg" data-src="/images/e203/e203_handshake.png" width="400" height="300">  
+<img lazyload="" src="/images/loading.svg" data-src="https://images.elecannonic.com/e203/e203_handshake.png" width="400" height="300">  
 </div>  
 <center>Sketch of Handshake Protocal</center> 
 
@@ -914,7 +914,7 @@ mjx-container[display="true"] + br {
 
 <h3 id="Access-Memory"><a href="#Access-Memory" class="headerlink" title="Access Memory"></a>Access Memory</h3><p>To improve code density,<br>E203 supports 16bit compressed RISC-V instruction sets.<br>Therefore, 32bit instructions mix with 16bit ones,<br>introducing misaligned 32bit instructions.</p>
 <div align="center">  
-<img lazyload="" src="/images/loading.svg" data-src="/images/e203/e203_32align.png" width="400" height="300">  
+<img lazyload="" src="/images/loading.svg" data-src="https://images.elecannonic.com/e203/e203_32align.png" width="400" height="300">  
 </div>  
 <center>Misaligned 32bit Instructions</center> 
 

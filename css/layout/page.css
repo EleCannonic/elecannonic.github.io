@@ -139,6 +139,142 @@
   --redefine-box-shadow-flat-hover: var(--shadow-color-2) 0px 1px 4px 0px, var(--shadow-color-1) 0px 0px 0px 1px, var(--shadow-color-1) 0px 0px 0px 1px inset;
   --mermaid-theme: $dark-mermaid-theme;
 }
+.markdown-body .blogroll-copy {
+  margin-top: 2rem;
+  padding: 24px;
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  background: var(--second-background-color);
+}
+.markdown-body .blogroll-copy h2 {
+  margin: 0 0 20px;
+  font-size: 1.5rem;
+}
+.markdown-body .blogroll-copy .blogroll-copy-information {
+  display: grid;
+  gap: 14px;
+  overflow-wrap: anywhere;
+}
+.markdown-body .blogroll-copy .blogroll-copy-row {
+  display: grid;
+  grid-template-columns: 7em minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+  text-align: left;
+}
+.markdown-body .blogroll-copy .blogroll-copy-row > strong {
+  padding-top: 12px;
+}
+.markdown-body .blogroll-copy .blogroll-copy-value {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 9px;
+  background: var(--third-background-color);
+  min-width: 0;
+}
+.markdown-body .blogroll-copy .blogroll-copy-value pre,
+.markdown-body .blogroll-copy .blogroll-copy-value code {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-family: 'Geist Mono', Consolas, monospace;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  text-align: left;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+.markdown-body .blogroll-copy .blogroll-copy-button {
+  margin: 0;
+  padding: 6px 10px;
+  border-radius: 9px;
+  background: var(--primary-color);
+  color: #fff;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+.markdown-body .blogroll-copy .blogroll-copy-button:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 4px;
+}
+.markdown-body .blogroll-copy .blogroll-copy-button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+.markdown-body .blogroll-copy .blogroll-copy-status {
+  display: block;
+  grid-column: 1/-1;
+  font-size: 0.85rem;
+}
+.markdown-body .blogroll-copy .blogroll-copy-status:empty {
+  display: none;
+}
+@media (max-width: 640px) {
+  .markdown-body .blogroll-copy {
+    padding: 16px;
+  }
+  .markdown-body .blogroll-copy .blogroll-copy-row {
+    grid-template-columns: 6.5em minmax(0, 1fr);
+    gap: 8px;
+    font-size: 0.9rem;
+  }
+  .markdown-body .blogroll-copy .blogroll-copy-value {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .markdown-body .blogroll-copy .blogroll-copy-button {
+    justify-self: start;
+  }
+}
+.about-card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin: 18px 0 28px;
+}
+@media (max-width: 640px) {
+  .about-card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.about-card {
+  padding: 22px 24px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  background: var(--second-background-color);
+  box-shadow: var(--redefine-box-shadow-flat);
+}
+.about-card strong {
+  color: var(--second-text-color);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+.about-card small {
+  color: var(--third-text-color);
+  font-size: 1rem;
+}
+.about-card .sjtu-badge {
+  width: 88px;
+  height: 88px;
+  min-width: 88px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .about-card .sjtu-badge {
+    width: 72px;
+    height: 72px;
+    min-width: 72px;
+  }
+}
 .page-title-header {
   font-size: 3.2rem;
   line-height: 1;
@@ -309,6 +445,18 @@
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s ease;
+}
+.page-container .right-side-tools-container.home-tools-persistent {
+  z-index: 1001;
+}
+.page-container .right-side-tools-container.home-tools-persistent,
+.page-container .right-side-tools-container.home-tools-persistent.hide {
+  opacity: 1;
+  pointer-events: auto;
+}
+.page-container .right-side-tools-container.home-tools-persistent .tool-dark-light-toggle:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 3px;
 }
 @media (max-width: 640px) {
   .page-container .right-side-tools-container {

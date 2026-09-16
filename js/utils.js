@@ -14,7 +14,6 @@ export default function initUtils() {
     pageContainer_dom: document.querySelector(".page-container"),
     pageTop_dom: document.querySelector(".main-content-header"),
     homeBanner_dom: document.querySelector(".home-banner-container"),
-    homeBannerBackground_dom: document.querySelector(".home-banner-background"),
     scrollProgressBar_dom: document.querySelector(".scroll-progress-bar"),
     pjaxProgressBar_dom: document.querySelector(".pjax-progress-bar"),
     backToTopButton_dom: document.querySelector(".tool-scroll-to-top"),
@@ -25,7 +24,6 @@ export default function initUtils() {
     pjaxProgressBarTimer: null,
     prevScrollValue: 0,
     fontSizeLevel: 0,
-    triggerViewHeight: 0.5 * window.innerHeight,
 
     isHasScrollProgressBar: theme.global.scroll_progress.bar === true,
     isHasScrollPercent: theme.global.scroll_progress.percentage === true,
@@ -104,13 +102,8 @@ export default function initUtils() {
         this.updateScrollStyle();
         this.updateTOCScroll();
         this.updateNavbarShrink();
-        // this.updateHomeBannerBlur();
         this.updateAutoHideTools();
       });
-      window.addEventListener(
-        "scroll",
-        this.debounce(() => this.updateHomeBannerBlur(), 20),
-      );
     },
 
     updateTOCScroll() {
@@ -125,36 +118,6 @@ export default function initUtils() {
     updateNavbarShrink() {
       if (!navigationState.isNavigating) {
         navbarShrink.init();
-      }
-    },
-
-    debounce(func, delay) {
-      let timer;
-      return function () {
-        clearTimeout(timer);
-        timer = setTimeout(() => func.apply(this, arguments), delay);
-      };
-    },
-
-    updateHomeBannerBlur() {
-      if (!this.homeBannerBackground_dom) return;
-
-      if (
-        theme.home_banner.style === "fixed" &&
-        location.pathname === config.root
-      ) {
-        const scrollY = window.scrollY || window.pageYOffset;
-        const blurValue = scrollY >= this.triggerViewHeight ? 15 : 0;
-
-        try {
-          requestAnimationFrame(() => {
-            this.homeBannerBackground_dom.style.filter = `blur(${blurValue}px)`;
-            this.homeBannerBackground_dom.style.webkitFilter = `blur(${blurValue}px)`;
-          });
-        } catch (e) {
-          // Handle or log the error properly
-          console.error("Error updating banner blur:", e);
-        }
       }
     },
 

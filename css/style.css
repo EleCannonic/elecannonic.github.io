@@ -1502,9 +1502,6 @@ pre .deletion {
 .footer .odometer.odometer-theme-default .odometer-value {
   text-align: center;
 }
-.home-banner-background {
-  transition: filter 0.3s ease;
-}
 .home-banner-container {
   font-family: 'Chillax-Variable', sans-serif;
   position: relative;

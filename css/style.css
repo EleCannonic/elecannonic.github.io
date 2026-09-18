@@ -4151,6 +4151,10 @@ div.tabs .tab-content .tab-pane .note:last-child {
     border: none !important;
     padding-top: 0;
   }
+  .page-container .main-content-container .main-content-body.home-layout {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 .page-container .main-content-container .main-content-body .main-content {
   position: relative;
@@ -4962,7 +4966,13 @@ html.is-animating .transition-fade-down {
 }
 @media (max-width: 640px) {
   .home-sidebar-container {
-    display: none;
+    display: block;
+    order: -1;
+    width: 90%;
+    margin: 0 0 22.8px;
+  }
+  .home-sidebar-container .sticky-container {
+    position: static;
   }
 }
 .home-sidebar-container .sticky-container {

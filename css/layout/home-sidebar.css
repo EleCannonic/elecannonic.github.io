@@ -151,7 +151,13 @@
 }
 @media (max-width: 640px) {
   .home-sidebar-container {
-    display: none;
+    display: block;
+    order: -1;
+    width: 90%;
+    margin: 0 0 22.8px;
+  }
+  .home-sidebar-container .sticky-container {
+    position: static;
   }
 }
 .home-sidebar-container .sticky-container {
